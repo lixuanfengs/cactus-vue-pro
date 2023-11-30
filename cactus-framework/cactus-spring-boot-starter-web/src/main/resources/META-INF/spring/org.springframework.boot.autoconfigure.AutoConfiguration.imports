@@ -1,0 +1,5 @@
+cn.cactus.framework.apilog.config.CactusApiLogAutoConfiguration
+cn.cactus.framework.jackson.config.CactusJacksonAutoConfiguration
+cn.cactus.framework.swagger.config.CactusSwaggerAutoConfiguration
+cn.cactus.framework.web.config.CactusWebAutoConfiguration
+cn.cactus.framework.xss.config.CactusXssAutoConfiguration

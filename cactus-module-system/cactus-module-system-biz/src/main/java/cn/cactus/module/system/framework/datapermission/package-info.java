@@ -1,0 +1,10 @@
+/**
+ * Package: cn.cactus.module.system.framework.datapermission
+ * Description:
+ * system 模块的数据权限配置
+ *
+ * @Author 仙人球⁶ᴳ | 微信：Cactusesli
+ * @Date 2023/11/23 10:01
+ * @Github https://github.com/lixuanfengs
+ */
+package cn.cactus.module.system.framework.datapermission;

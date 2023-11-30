@@ -1,0 +1,2 @@
+cn.cactus.framework.datasource.config.CactusDataSourceAutoConfiguration
+cn.cactus.framework.mybatis.config.CactusMybatisAutoConfiguration

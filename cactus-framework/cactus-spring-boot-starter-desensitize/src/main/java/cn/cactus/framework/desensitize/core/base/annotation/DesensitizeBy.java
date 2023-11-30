@@ -1,0 +1,32 @@
+package cn.cactus.framework.desensitize.core.base.annotation;
+
+import cn.cactus.framework.desensitize.core.base.handler.DesensitizationHandler;
+import cn.cactus.framework.desensitize.core.base.serializer.StringDesensitizeSerializer;
+import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import java.lang.annotation.*;
+
+/**
+ * Package: cn.cactus.framework.desensitize.core.base.annotation
+ * Description:
+ * 顶级脱敏注解，自定义注解需要使用此注解
+ *
+ * @Author 仙人球⁶ᴳ | 微信：Cactusesli
+ * @Date 2023/11/27 14:47
+ * @Github https://github.com/lixuanfengs
+ */
+@Documented
+@Target(ElementType.ANNOTATION_TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@JacksonAnnotationsInside // 此注解是其他所有 jackson 注解的元注解，打上了此注解的注解表明是 jackson 注解的一部分
+@JsonSerialize(using = StringDesensitizeSerializer.class) // 指定序列化器
+public @interface DesensitizeBy {
+
+    /**
+     * 脱敏处理器
+     */
+    @SuppressWarnings("rawtypes")
+    Class<? extends DesensitizationHandler> handler();
+
+}

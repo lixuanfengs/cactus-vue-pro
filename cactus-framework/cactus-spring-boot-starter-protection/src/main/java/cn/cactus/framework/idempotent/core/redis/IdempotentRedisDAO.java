@@ -1,0 +1,40 @@
+package cn.cactus.framework.idempotent.core.redis;
+
+import lombok.AllArgsConstructor;
+import org.springframework.data.redis.core.StringRedisTemplate;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Package: cn.cactus.framework.idempotent.core.redis
+ * Description:
+ * 幂等 Redis DAO
+ *
+ * @Author 仙人球⁶ᴳ | 微信：Cactusesli
+ * @Date 2023/11/24 15:41
+ * @Github https://github.com/lixuanfengs
+ */
+@AllArgsConstructor
+public class IdempotentRedisDAO {
+
+    /**
+     * 幂等操作
+     *
+     * KEY 格式：idempotent:%s // 参数为 uuid
+     * VALUE 格式：String
+     * 过期时间：不固定
+     */
+    private static final String IDEMPOTENT = "idempotent:%s";
+
+    private final StringRedisTemplate redisTemplate;
+
+    public Boolean setIfAbsent(String key, long timeout, TimeUnit timeUnit) {
+        String redisKey = formatKey(key);
+        return redisTemplate.opsForValue().setIfAbsent(redisKey, "", timeout, timeUnit);
+    }
+
+    private static String formatKey(String key) {
+        return String.format(IDEMPOTENT, key);
+    }
+
+}

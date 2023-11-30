@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.cactus.boot</groupId>
+        <artifactId>cactus</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>cactus-module-report</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>cactus-module-report-api</module>
+        <module>cactus-module-report-biz</module>
+    </modules>
+
+    <name>${project.artifactId}</name>
+    <description>
+        report 模块，主要实现数据可视化报表等功能。
+    </description>
+
+</project>
