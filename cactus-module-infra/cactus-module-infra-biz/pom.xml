@@ -37,10 +37,6 @@
             <groupId>cn.cactus.boot</groupId>
             <artifactId>cactus-spring-boot-starter-biz-operatelog</artifactId>
         </dependency>
-        <dependency>
-            <groupId>cn.cactus.boot</groupId>
-            <artifactId>cactus-spring-boot-starter-biz-tenant</artifactId>
-        </dependency>
 
         <!-- Web 相关 -->
         <dependency>

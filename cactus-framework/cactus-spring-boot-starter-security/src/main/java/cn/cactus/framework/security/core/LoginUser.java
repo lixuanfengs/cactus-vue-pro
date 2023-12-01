@@ -1,5 +1,6 @@
 package cn.cactus.framework.security.core;
 
+import cn.cactus.framework.common.enums.UserTypeEnum;
 import cn.hutool.core.map.MapUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -30,10 +31,6 @@ public class LoginUser {
      * 关联 {@link UserTypeEnum}
      */
     private Integer userType;
-    /**
-     * 租户编号
-     */
-    private Long tenantId;
     /**
      * 授权范围
      */

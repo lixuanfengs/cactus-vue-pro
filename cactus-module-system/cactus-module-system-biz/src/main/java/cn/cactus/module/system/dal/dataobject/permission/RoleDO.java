@@ -1,8 +1,8 @@
 package cn.cactus.module.system.dal.dataobject.permission;
 
 import cn.cactus.framework.common.enums.CommonStatusEnum;
+import cn.cactus.framework.mybatis.core.dataobject.BaseDO;
 import cn.cactus.framework.mybatis.core.type.JsonLongSetTypeHandler;
-import cn.cactus.framework.tenant.core.db.TenantBaseDO;
 import cn.cactus.module.system.enums.permission.DataScopeEnum;
 import cn.cactus.module.system.enums.permission.RoleTypeEnum;
 import com.baomidou.mybatisplus.annotation.KeySequence;
@@ -27,7 +27,7 @@ import java.util.Set;
 @KeySequence("system_role_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class RoleDO extends TenantBaseDO {
+public class RoleDO extends BaseDO {
 
     /**
      * 角色ID

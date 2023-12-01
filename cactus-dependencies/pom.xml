@@ -120,11 +120,6 @@
             </dependency>
             <dependency>
                 <groupId>cn.cactus.boot</groupId>
-                <artifactId>cactus-spring-boot-starter-biz-tenant</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.cactus.boot</groupId>
                 <artifactId>cactus-spring-boot-starter-biz-data-permission</artifactId>
                 <version>${revision}</version>
             </dependency>

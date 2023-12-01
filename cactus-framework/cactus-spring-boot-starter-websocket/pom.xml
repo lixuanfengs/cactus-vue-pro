@@ -61,16 +61,6 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- 业务组件 -->
-        <dependency>
-            <!-- 为什么要依赖 tenant 组件？
-                因为广播某个类型的用户时候，需要根据租户过滤下，避免广播到别的租户！
-            -->
-            <groupId>cn.cactus.boot</groupId>
-            <artifactId>cactus-spring-boot-starter-biz-tenant</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
     </dependencies>
 
 </project>

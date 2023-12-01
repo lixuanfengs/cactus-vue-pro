@@ -20,7 +20,6 @@
         <module>cactus-spring-boot-starter-biz-pay</module>
         <module>cactus-spring-boot-starter-biz-sms</module>
         <module>cactus-spring-boot-starter-biz-social</module>
-        <module>cactus-spring-boot-starter-biz-tenant</module>
         <module>cactus-spring-boot-starter-biz-weixin</module>
         <module>cactus-spring-boot-starter-captcha</module>
         <module>cactus-spring-boot-starter-desensitize</module>

@@ -19,12 +19,6 @@ import javax.validation.constraints.Size;
 public class RoleCreateReqBO {
 
     /**
-     * 租户编号
-     */
-    @NotNull(message = "租户编号不能为空")
-    private Long tenantId;
-
-    /**
      * 角色名称
      */
     @NotBlank(message = "角色名称不能为空")

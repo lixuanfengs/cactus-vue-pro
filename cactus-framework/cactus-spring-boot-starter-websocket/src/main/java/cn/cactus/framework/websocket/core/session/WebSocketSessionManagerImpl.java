@@ -1,7 +1,6 @@
 package cn.cactus.framework.websocket.core.session;
 
 import cn.cactus.framework.security.core.LoginUser;
-import cn.cactus.framework.tenant.core.context.TenantContextHolder;
 import cn.cactus.framework.websocket.core.util.WebSocketFrameworkUtils;
 import cn.hutool.core.collection.CollUtil;
 import org.springframework.web.socket.WebSocketSession;
@@ -99,17 +98,9 @@ public class WebSocketSessionManagerImpl implements WebSocketSessionManager {
             return new ArrayList<>();
         }
         LinkedList<WebSocketSession> result = new LinkedList<>(); // 避免扩容
-        Long contextTenantId = TenantContextHolder.getTenantId();
         for (List<WebSocketSession> sessions : userSessionsMap.values()) {
             if (CollUtil.isEmpty(sessions)) {
                 continue;
-            }
-            // 特殊：如果租户不匹配，则直接排除
-            if (contextTenantId != null) {
-                Long userTenantId = WebSocketFrameworkUtils.getTenantId(sessions.get(0));
-                if (!contextTenantId.equals(userTenantId)) {
-                    continue;
-                }
             }
             result.addAll(sessions);
         }

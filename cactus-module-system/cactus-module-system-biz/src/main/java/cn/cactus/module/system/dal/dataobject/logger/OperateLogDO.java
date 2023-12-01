@@ -3,6 +3,7 @@ package cn.cactus.module.system.dal.dataobject.logger;
 import cn.cactus.framework.common.enums.UserTypeEnum;
 import cn.cactus.framework.common.pojo.CommonResult;
 import cn.cactus.framework.mybatis.core.dataobject.BaseDO;
+import cn.cactus.framework.operatelog.core.enums.OperateTypeEnum;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

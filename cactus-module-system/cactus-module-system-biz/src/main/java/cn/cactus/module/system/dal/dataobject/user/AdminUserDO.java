@@ -1,8 +1,9 @@
 package cn.cactus.module.system.dal.dataobject.user;
 
 import cn.cactus.framework.common.enums.CommonStatusEnum;
+import cn.cactus.framework.mybatis.core.dataobject.BaseDO;
 import cn.cactus.framework.mybatis.core.type.JsonLongSetTypeHandler;
-import cn.cactus.framework.tenant.core.db.TenantBaseDO;
+import cn.cactus.module.system.enums.common.SexEnum;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -29,7 +30,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdminUserDO extends TenantBaseDO {
+public class AdminUserDO extends BaseDO {
 
     /**
      * 用户ID

@@ -2,7 +2,7 @@ package cn.cactus.module.system.dal.dataobject.social;
 
 import cn.cactus.framework.common.enums.CommonStatusEnum;
 import cn.cactus.framework.common.enums.UserTypeEnum;
-import cn.cactus.framework.tenant.core.db.TenantBaseDO;
+import cn.cactus.framework.mybatis.core.dataobject.BaseDO;
 import cn.cactus.module.system.enums.social.SocialTypeEnum;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -28,7 +28,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SocialClientDO extends TenantBaseDO {
+public class SocialClientDO extends BaseDO {
 
     /**
      * 编号，自增

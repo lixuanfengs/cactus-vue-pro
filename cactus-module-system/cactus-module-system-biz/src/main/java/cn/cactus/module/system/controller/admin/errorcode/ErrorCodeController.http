@@ -2,7 +2,6 @@
 POST {{baseUrl}}/inra/error-code/create
 Authorization: Bearer {{token}}
 Content-Type: application/json
-tenant-id: {{adminTenentId}}
 
 {
   "code": 200,

@@ -8,16 +8,13 @@ import cn.cactus.module.system.controller.admin.permission.vo.menu.MenuUpdateReq
 import cn.cactus.module.system.dal.dataobject.permission.MenuDO;
 import cn.cactus.module.system.dal.mysql.permission.MenuMapper;
 import cn.cactus.module.system.enums.permission.MenuTypeEnum;
-import cn.cactus.module.system.service.tenant.TenantService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Set;
 
-import static cn.cactus.framework.common.util.collection.SetUtils.asSet;
 import static cn.cactus.framework.common.util.object.ObjectUtils.cloneIgnoreId;
 import static cn.cactus.framework.test.core.util.AssertUtils.assertPojoEquals;
 import static cn.cactus.framework.test.core.util.AssertUtils.assertServiceException;
@@ -26,8 +23,6 @@ import static cn.cactus.module.system.dal.dataobject.permission.MenuDO.ID_ROOT;
 import static cn.cactus.module.system.enums.ErrorCodeConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.ArgumentMatchers.argThat;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 
 /**
@@ -49,9 +44,6 @@ public class MenuServiceImplTest extends BaseDbUnitTest {
 
     @MockBean
     private PermissionService permissionService;
-    @MockBean
-    private TenantService tenantService;
-
     @Test
     public void testCreateMenu_success() {
         // mock 数据（构造父菜单）
@@ -178,12 +170,6 @@ public class MenuServiceImplTest extends BaseDbUnitTest {
         menuMapper.insert(menu101);
         MenuDO menu102 = randomPojo(MenuDO.class, o -> o.setId(102L).setStatus(CommonStatusEnum.ENABLE.getStatus()));
         menuMapper.insert(menu102);
-        // mock 过滤菜单
-        Set<Long> menuIds = asSet(100L, 101L);
-        doNothing().when(tenantService).handleTenantMenu(argThat(handler -> {
-            handler.handle(menuIds);
-            return true;
-        }));
         // 准备参数
         MenuListReqVO reqVO = new MenuListReqVO().setStatus(CommonStatusEnum.ENABLE.getStatus());
 

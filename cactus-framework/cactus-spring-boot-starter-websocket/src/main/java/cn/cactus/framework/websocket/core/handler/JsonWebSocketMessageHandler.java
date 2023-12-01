@@ -1,7 +1,6 @@
 package cn.cactus.framework.websocket.core.handler;
 
 import cn.cactus.framework.common.util.json.JsonUtils;
-import cn.cactus.framework.tenant.core.util.TenantUtils;
 import cn.cactus.framework.websocket.core.listener.WebSocketMessageListener;
 import cn.cactus.framework.websocket.core.message.JsonWebSocketMessage;
 import cn.cactus.framework.websocket.core.util.WebSocketFrameworkUtils;
@@ -78,7 +77,7 @@ public class JsonWebSocketMessageHandler extends TextWebSocketHandler {
             Type type = TypeUtil.getTypeArgument(messageListener.getClass(), 0);
             Object messageObj = JsonUtils.parseObject(jsonMessage.getContent(), type);
             Long tenantId = WebSocketFrameworkUtils.getTenantId(session);
-            TenantUtils.execute(tenantId, () -> messageListener.onMessage(session, messageObj));
+            //TenantUtils.execute(tenantId, () -> messageListener.onMessage(session, messageObj));
         } catch (Throwable ex) {
             log.error("[handleTextMessage][session({}) message({}) 处理异常]", session.getId(), message.getPayload());
         }
