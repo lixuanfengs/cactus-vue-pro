@@ -9,7 +9,6 @@ import cn.cactus.module.system.convert.dept.DeptConvert;
 import cn.cactus.module.system.dal.dataobject.dept.DeptDO;
 import cn.cactus.module.system.dal.mysql.dept.DeptMapper;
 import cn.cactus.module.system.dal.redis.RedisKeyConstants;
-import cn.cactus.module.system.enums.dept.DeptIdEnum;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.google.common.annotations.VisibleForTesting;
@@ -49,7 +48,7 @@ public class DeptServiceImpl implements DeptService {
     public Long createDept(DeptCreateReqVO reqVO) {
         // 校验正确性
         if (reqVO.getParentId() == null) {
-            reqVO.setParentId(DeptIdEnum.ROOT.getId());
+            reqVO.setParentId(DeptDO.PARENT_ID_ROOT);
         }
         validateForCreateOrUpdate(null, reqVO.getParentId(), reqVO.getName());
         // 插入部门
@@ -64,7 +63,7 @@ public class DeptServiceImpl implements DeptService {
     public void updateDept(DeptUpdateReqVO reqVO) {
         // 校验正确性
         if (reqVO.getParentId() == null) {
-            reqVO.setParentId(DeptIdEnum.ROOT.getId());
+            reqVO.setParentId(DeptDO.PARENT_ID_ROOT);
         }
         validateForCreateOrUpdate(reqVO.getId(), reqVO.getParentId(), reqVO.getName());
         // 更新部门
@@ -108,7 +107,7 @@ public class DeptServiceImpl implements DeptService {
 
     @VisibleForTesting
     void validateParentDept(Long id, Long parentId) {
-        if (parentId == null || DeptIdEnum.ROOT.getId().equals(parentId)) {
+        if (parentId == null || DeptDO.PARENT_ID_ROOT.equals(parentId)) {
             return;
         }
         // 不能设置自己为父部门

@@ -1,10 +1,14 @@
 package cn.cactus.module.system.api.dept;
 
+import cn.cactus.framework.common.util.object.BeanUtils;
+import cn.cactus.module.system.api.dept.dto.PostRespDTO;
+import cn.cactus.module.system.dal.dataobject.dept.PostDO;
 import cn.cactus.module.system.service.dept.PostService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Package: cn.cactus.module.system.api.dept
@@ -24,6 +28,12 @@ public class PostApiImpl implements PostApi {
     @Override
     public void validPostList(Collection<Long> ids) {
         postService.validatePostList(ids);
+    }
+
+    @Override
+    public List<PostRespDTO> getPostList(Collection<Long> ids) {
+        List<PostDO> list = postService.getPostList(ids);
+        return BeanUtils.toBean(list, PostRespDTO.class);
     }
 
 }
